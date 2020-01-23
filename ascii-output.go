@@ -7,6 +7,12 @@ import (
 	"strings"
 )
 
+
+func main() {
+	fmt.Println("writing to files...")
+}
+
+
 func Output(arguments []string) {
 	//	arguments := os.Args[1:]
 
