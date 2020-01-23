@@ -8,12 +8,9 @@ import (
 )
 
 func main() {
-	fmt.Println("writing to files...")
-}
-
-func Output(arguments []string) {
+	arguments := os.Args[1:]
 	FileName := "standart.txt"
-	if len(arguments) == 3 {
+	if len(arguments) == 2 {
 		switch arguments[1] {
 		case "standart":
 			FileName = "standart.txt"
@@ -22,15 +19,6 @@ func Output(arguments []string) {
 		case "thinkertoy":
 			FileName = "thinkertoy.txt"
 		}
-
-		fileNAme := arguments[2][9:]
-		FileW, err := os.Create(fileNAme)
-		if err != nil {
-			fmt.Println(err.Error()) //if error? print error and close programm
-			os.Exit(1)
-		}
-
-		defer FileW.Close()
 
 		symbols := GetMapOfSymbols(FileName)
 		lineIndex := 1
@@ -57,17 +45,15 @@ func Output(arguments []string) {
 		for _, bigLine := range result { //printing result line by line
 			for i := 0; i < 8; i++ {
 				for _, line := range bigLine {
-					fmt.Fprint(FileW, line[i])
+					fmt.Print(line[i])
 				}
-				fmt.Fprintln(FileW)
+				fmt.Print("\n")
 			}
 		}
-		//os.Exit(0)
-
+		os.Exit(0)
 	} else {
-		fmt.Println("Number of arguments should be 3")
+		fmt.Println("Number of arguments should be 2")
 	}
-
 }
 
 func ToLinesArray(s string) []string { // funcion to convert string to string slice line by line
