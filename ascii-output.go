@@ -7,15 +7,13 @@ import (
 	"strings"
 )
 
-
 func main() {
 	fmt.Println("writing to files...")
 }
 
-
 func Output(arguments []string) {
 	//	arguments := os.Args[1:]
-
+	fmt.Println(arguments[2])
 	FileName := "standart.txt"
 	if len(arguments) == 3 {
 		switch arguments[1] {

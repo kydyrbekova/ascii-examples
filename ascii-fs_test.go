@@ -48,6 +48,7 @@ func TestReadFile(t *testing.T) {
 
 	for _, test := range tests {
 		Output(test.input)
+
 		dataoutput, err := ioutil.ReadFile(test.output)
 		if err != nil {
 			t.Fatal("Could not open output file")
