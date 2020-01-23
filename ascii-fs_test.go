@@ -62,7 +62,8 @@ func TestReadFile(t *testing.T) {
 			continue
 		}
 		if string(dataoutput) != string(dataexp) {
-			t.Fatal("Output do not match expected")
+			//t.Fatal("Output do not match expected")
+			t.Errorf("Problems with input %s, output in file %s, expected values in %s", test.input, test.output, test.expected)
 			continue
 		}
 	}
