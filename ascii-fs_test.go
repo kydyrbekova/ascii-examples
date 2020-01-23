@@ -11,15 +11,15 @@ func TestReadFile(t *testing.T) {
 		output   string
 		expected string
 	}{
-		{[]string{"hello", "standard", "--output=test01.txt"},
-			"test01.txt",
-			"exp01.txt",
-		},
 		{[]string{"First\nTest", "shadow", "--output=test00.txt"},
 			"test00.txt",
 			"exp00.txt",
 		},
 
+		{[]string{"hello", "standard", "--output=test01.txt"},
+			"test01.txt",
+			"exp01.txt",
+		},
 		{[]string{"123 -> #$%", "standard", "--output=test02.txt"},
 			"test02.txt",
 			"exp02.txt",

@@ -12,8 +12,6 @@ func main() {
 }
 
 func Output(arguments []string) {
-	//	arguments := os.Args[1:]
-	fmt.Println(arguments[2])
 	FileName := "standart.txt"
 	if len(arguments) == 3 {
 		switch arguments[1] {
@@ -64,7 +62,7 @@ func Output(arguments []string) {
 				fmt.Fprintln(FileW)
 			}
 		}
-		os.Exit(0)
+		//os.Exit(0)
 
 	} else {
 		fmt.Println("Number of arguments should be 3")
