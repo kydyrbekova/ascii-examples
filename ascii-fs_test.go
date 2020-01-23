@@ -3,8 +3,7 @@ package main
 import (
 	"io/ioutil"
 	"testing"
-	student ".."
-)
+	)
 
 func TestReadFile(t *testing.T) {
 	var tests = []struct {
