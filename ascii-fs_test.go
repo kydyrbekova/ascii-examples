@@ -11,14 +11,15 @@ func TestReadFile(t *testing.T) {
 		output   string
 		expected string
 	}{
-		{[]string{"First\nTest", "shadow", "--output=test00.txt"},
-			"test00.txt",
-			"exp00.txt",
-		},
 		{[]string{"hello", "standard", "--output=test01.txt"},
 			"test01.txt",
 			"exp01.txt",
 		},
+		{[]string{"First\nTest", "shadow", "--output=test00.txt"},
+			"test00.txt",
+			"exp00.txt",
+		},
+
 		{[]string{"123 -> #$%", "standard", "--output=test02.txt"},
 			"test02.txt",
 			"exp02.txt",
@@ -47,18 +48,22 @@ func TestReadFile(t *testing.T) {
 	}
 
 	for _, test := range tests {
+
 		Output(test.input)
 
 		dataoutput, err := ioutil.ReadFile(test.output)
 		if err != nil {
 			t.Fatal("Could not open output file")
+			continue
 		}
 		dataexp, errexp := ioutil.ReadFile(test.expected)
 		if errexp != nil {
 			t.Fatal("Could not open expected file")
+			continue
 		}
 		if string(dataoutput) != string(dataexp) {
 			t.Fatal("Output do not match expected")
+			continue
 		}
 	}
 
