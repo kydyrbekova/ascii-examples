@@ -87,6 +87,7 @@ func main() {
 				}
 			}
 		}
+
 		terminalW, err := TerminalWidth()
 		if err != nil {
 			fmt.Println(err.Error())
